@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/level_environment.gd" id="1_cenario"]
+[ext_resource type="PackedScene" path="res://scenes/characters/vigia.tscn" id="2_vigia"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_cenario")
+
+[node name="Personagem" parent="." instance=ExtResource("2_vigia")]
+position = Vector3(0, -0.86, 7)
