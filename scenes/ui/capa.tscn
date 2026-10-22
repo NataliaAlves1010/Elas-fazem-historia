@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/capa.gd" id="1_capa"]
+[ext_resource type="Texture2D" path="res://assets/ui/capa.png" id="2_fundo"]
+
+[sub_resource type="SystemFont" id="SystemFont"]
+font_names = PackedStringArray("Consolas", "DejaVu Sans Mono", "monospace")
+
+[sub_resource type="StyleBoxFlat" id="StyleJogar"]
+bg_color = Color(0.545, 0.118, 0.176, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12, 0.10, 0.08, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleJogarHover"]
+bg_color = Color(0.62, 0.16, 0.22, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12, 0.10, 0.08, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleCreme"]
+bg_color = Color(0.941, 0.902, 0.812, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12, 0.10, 0.08, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleCremeHover"]
+bg_color = Color(0.98, 0.94, 0.86, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12, 0.10, 0.08, 1)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[node name="Capa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_capa")
+
+[node name="Fundo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fundo")
+expand_mode = 1
+stretch_mode = 6
+mouse_filter = 2
+
+[node name="Botoes" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -104.0
+offset_right = 584.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Jogar" type="Button" parent="Botoes"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.941, 0.902, 0.812, 1)
+theme_override_colors/font_hover_color = Color(0.941, 0.902, 0.812, 1)
+theme_override_colors/font_pressed_color = Color(0.941, 0.902, 0.812, 1)
+theme_override_fonts/font = SubResource("SystemFont")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleJogar")
+theme_override_styles/hover = SubResource("StyleJogarHover")
+theme_override_styles/pressed = SubResource("StyleJogar")
+focus_neighbor_left = NodePath("../Opcoes")
+focus_neighbor_right = NodePath("../Continuar")
+text = "JOGAR"
+
+[node name="Continuar" type="Button" parent="Botoes"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.10, 0.08, 1)
+theme_override_fonts/font = SubResource("SystemFont")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleCreme")
+theme_override_styles/hover = SubResource("StyleCremeHover")
+theme_override_styles/pressed = SubResource("StyleCreme")
+focus_neighbor_left = NodePath("../Jogar")
+focus_neighbor_right = NodePath("../Galeria")
+text = "CONTINUAR"
+
+[node name="Galeria" type="Button" parent="Botoes"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.10, 0.08, 1)
+theme_override_fonts/font = SubResource("SystemFont")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleCreme")
+theme_override_styles/hover = SubResource("StyleCremeHover")
+theme_override_styles/pressed = SubResource("StyleCreme")
+focus_neighbor_left = NodePath("../Continuar")
+focus_neighbor_right = NodePath("../Opcoes")
+text = "GALERIA"
+
+[node name="Opcoes" type="Button" parent="Botoes"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.10, 0.08, 1)
+theme_override_fonts/font = SubResource("SystemFont")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleCreme")
+theme_override_styles/hover = SubResource("StyleCremeHover")
+theme_override_styles/pressed = SubResource("StyleCreme")
+focus_neighbor_left = NodePath("../Galeria")
+focus_neighbor_right = NodePath("../Jogar")
+text = "OPÇÕES"
